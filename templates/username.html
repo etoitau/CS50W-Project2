@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block script %}
+{% endblock %}
+
+{% block title %}
+    OnceWord - Pick Name
+{% endblock %}
+
+{% block content %}
+<div class="contentbox navi">
+    <h3>Welcome</h3>
+    <form action="{{ url_for('username') }}" method="post">
+        <input autocomplete="off" autofocus required id="channel_name" type="text" name="username" placeholder="Pick Username"><button type="submit">Go</button>
+    </form>
+
+</div>
+{% endblock %}

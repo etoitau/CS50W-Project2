@@ -17,10 +17,15 @@
     <body>
 
         <div class="navi">
-            <td class="title min"><a href="{{ url_for('index') }}" class="nostyle">OnceWord</a></td>
+            <a href="{{ url_for('index') }}" class="nostyle title">OnceWord</a>
+            {% if username %}{{ username }}{% endif %}
         </div>
         <div class="tabs">
-            <div id="currenttab" class="tab current">Current</div><div class="tab channels">Channels</div>
+            {% if username %}
+                <div id="currenttab" class="tab current">
+                    {% if channel %}{{ channel }}{% else %}Current{% endif %}
+                </div><div class="tab channels"><a class="nostyle" href="{{ url_for('channel') }}">Channels</a></div>
+            {% endif %}
         </div>
         {% block content %}{% endblock %}
                        

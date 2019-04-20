@@ -1,22 +1,42 @@
 
+import re
+
 from flask import render_template, request, session
 
 
-def addchecktrie(root, word):
+def check_trie(root, word):
     # looks up word in given trie. 
-    # if already there, return True, else add it and return False
+    # if already there, return True, else return False
     current = root
-    indict = True
     for letter in word:
         try:
             current = current[letter]
         except:
-            indict = False
+            return False
+    return True
+
+
+def add_trie(root, word):
+    # adds word to trie
+    current = root
+    for letter in word:
+        try:
+            current = current[letter]
+        except:
             current[letter] = {}
             current = current[letter]
-    return indict
+    return 0
 
 
 def message(message, title="Attention", code=200):
     """Render message to user."""
     return render_template("message.html", title=title, message=message, code=code), code
+
+
+def list_words(text):
+    # returns list of words in string all lowercase
+    words = re.split('\W+', text)
+    return [word.lower() for word in words if word]
+
+    
+

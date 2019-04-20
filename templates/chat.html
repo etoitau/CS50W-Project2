@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block script %}
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='chatscripts.js') }}">
+
+</script>
+{% endblock %}
+
+{% block title %}
+    OnceWord
+{% endblock %}
+
+{% block content %}
+<div class="contentbox current">
+    <h3>Send Message</h3>
+    <input autocomplete="off" autofocus id="msg_input" type="text" data-user_name='{{ username }}' data-channel_name='{{ channel }}'>
+    <br>
+    <div id="banned_words"></div>
+    <br><br>
+    <div id="chat">
+        {% for message in messages %}
+            <p>{{ message.user_name }} {{message.time }}: <br>{{ message.text}}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
