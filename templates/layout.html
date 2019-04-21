@@ -18,12 +18,14 @@
 
         <div class="navi">
             <a href="{{ url_for('index') }}" class="nostyle title">OnceWord</a>
-            {% if username %}{{ username }}{% endif %}
+            {% if username %}
+                <span class="user_name"><a href="{{ url_for('username') }}" class="nostyle">{{ username }}</a></span>
+            {% endif %}
         </div>
         <div class="tabs">
             {% if username %}
                 <div id="currenttab" class="tab current">
-                    {% if channel %}{{ channel }}{% else %}Current{% endif %}
+                    {% if channel %}{{ channel }}{% else %} {% endif %}
                 </div><div class="tab channels"><a class="nostyle" href="{{ url_for('channel') }}">Channels</a></div>
             {% endif %}
         </div>

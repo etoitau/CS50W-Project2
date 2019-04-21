@@ -9,17 +9,17 @@
 
 {% block content %}
 <div class="contentbox channels">
-    <h3>New Channel</h3>
+    <h4>New Channel</h4>
     <form action="{{ url_for('channel') }}" method="post">
         <input autocomplete="off" autofocus required id="channel_name" name="channel_name" type="text"><button type="submit">Go</button>
     </form>
     <br>
     <h3>Channels</h3>
         {% if channels|length %}
-            <table>
+            <table id="channel_table">
                 <thead>
                     <tr>
-                        <th>Channel</th><th>Words</th>
+                        <th>Name</th><th>Words Used</th>
                     </tr>
                 </thead>
                 <tbody>

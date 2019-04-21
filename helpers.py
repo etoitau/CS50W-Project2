@@ -13,7 +13,11 @@ def check_trie(root, word):
             current = current[letter]
         except:
             return False
-    return True
+    try: 
+        current = current['end']
+        return True
+    except:
+        return False
 
 
 def add_trie(root, word):
@@ -25,6 +29,7 @@ def add_trie(root, word):
         except:
             current[letter] = {}
             current = current[letter]
+    current['end'] = True
     return 0
 
 

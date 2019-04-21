@@ -8,20 +8,23 @@
 {% endblock %}
 
 {% block title %}
-    OnceWord
+    OnceWord - Chat
 {% endblock %}
 
 {% block content %}
 <div class="contentbox current">
-    <h3>Send Message</h3>
-    <input autocomplete="off" autofocus id="msg_input" type="text" data-user_name='{{ username }}' data-channel_name='{{ channel }}'>
-    <br>
-    <div id="banned_words"></div>
-    <br><br>
-    <div id="chat">
-        {% for message in messages %}
-            <p>{{ message.user_name }} {{message.time }}: <br>{{ message.text}}</p>
-        {% endfor %}
+    <div class="input_head">
+        <br><h4>Send Message</h4><br>
+        <input autocomplete="off" autofocus id="msg_input" type="text" data-user_name='{{ username }}' data-channel_name='{{ channel }}'>
+        <br>
+        <div id="banned_words"></div>
+    </div>
+    <div class="scroll_box">
+        <div id="chat">
+            {% for message in messages %}
+                <p>{{ message.user_name }} {{message.time }}: <br>{{ message.text}}</p>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

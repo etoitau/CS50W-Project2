@@ -41,7 +41,11 @@ body {
     height: 100%;
     display: inline-block;
     line-height: 30px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
 .current {
     background-color: #828E82;
 }
@@ -55,7 +59,7 @@ body {
 }
 
 .contentbox {
-    padding: 15px;
+    padding: 0 15px 15px 15px;
     height: 100%;
     position: fixed;
     top: 60px;
@@ -71,4 +75,30 @@ form, input, select, button, textarea {
 a.nostyle, a.nostyle:link, a.nostyle:visited, a.nostyle:hover, a.nostyle:active {
     color: inherit;
     text-decoration: none;
+}
+
+.scroll_box {
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 160px);
+    overflow: scroll;
+    background-color: inherit;
+}
+
+.user_name {
+    float: right;
+}
+
+#channel_table th {
+    text-align: left;
+}
+
+.input_head {
+    height: 100px;
+    box-sizing: border-box;
+
+}
+
+h4 {
+    margin: 0px;
 }

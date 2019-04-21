@@ -17,9 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("socket connected")
         input.addEventListener("keyup", function(event) {
             if (event.key === "Enter") {
-                console.log("sending message:")
+                console.log("Enter pressed")
                 const msg_to_send = input.value;
-                socket.emit('send_message', {'name': user_name, 'text': msg_to_send, 'channel': channel});
+                if (msg_to_send) {
+                    console.log("sending message:")
+                    console.log(msg_to_send)
+                    socket.emit('send_message', {'name': user_name, 'text': msg_to_send, 'channel': channel});
+                }  
             }
         })
     });
@@ -30,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(data);
         if (data.length > 0) {
             console.log("found used words")
-            feedback.innerHTML = data;
+            feedback.innerHTML = "Can't use: ".concat(data);
         }
         else {
             console.log("message okay")
