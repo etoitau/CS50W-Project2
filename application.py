@@ -40,13 +40,20 @@ def usr_message(data):
     log.debug("%s @ %r: %s", user_name, time, text)
     used_words = ""
     # iterate over words and check if they've been used. If so, add to list
+    this_msg = set()
     for word in list_words(text):
         log.debug("checking if used: %s", word)
-        try:
-            if check_trie(channels[channel_name].trie, word):
-                used_words += " " + word
-        except:
-            used_words = "Out of sync, please reload"
+        # check if word used twice in this message
+        if word in this_msg:
+            used_words += " " + word
+        # if not in this message, past message
+        else:
+            this_msg.add(word)
+            try:
+                if check_trie(channels[channel_name].trie, word):
+                    used_words += " " + word
+            except:
+                used_words = "Out of sync, please reload"
     # send list of rejected words back to user. If empty they will be able to proceed
     emit("message_status", used_words)
     # if no used words were found, log message serverside and broadjast to all users
@@ -113,6 +120,7 @@ def channel():
 def chat(channel_name):
     log.info("chat called with channel: %s", channel_name)
     username = session.get("username") 
+    session['channel'] = channel_name
     if channel_name not in channels:
         return problem("out of sync", "Error", 500)
     if channels[channel_name].messages:
