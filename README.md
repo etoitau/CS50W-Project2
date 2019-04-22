@@ -31,5 +31,7 @@ Main added feature is a restriction to only use each word once in a particular c
     └── requirements.txt        # necessary to install these to run app
 
 ### Other info
+Github:
 https://github.com/etoitau/CS50W-Project2
+Youtube walkthrough:
 https://youtu.be/YD0nKyvK9Xk
