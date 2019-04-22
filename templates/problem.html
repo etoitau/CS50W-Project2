@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="content">
+<div class="contentbox navi">
     {# if an error message, print as such #}
     {% if code != 200 %}<h3>{{ code }} {{ title }}</h3>
     {# else if not error but title was specified, print that #}

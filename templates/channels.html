@@ -9,12 +9,14 @@
 
 {% block content %}
 <div class="contentbox channels">
-    <h4>New Channel</h4>
-    <form action="{{ url_for('channel') }}" method="post">
-        <input autocomplete="off" autofocus required id="channel_name" name="channel_name" type="text"><button type="submit">Go</button>
-    </form>
-    <br>
-    <h3>Channels</h3>
+    <div class="input_head">
+        <br><h4>New Channel</h4>
+        <form action="{{ url_for('channel') }}" method="post">
+            <input autocomplete="off" autofocus required id="channel_name" name="channel_name" type="text"><button type="submit">Go</button>
+        </form>
+    </div>
+    <div class="scroll_box">
+        <h4>Channels</h4>
         {% if channels|length %}
             <table id="channel_table">
                 <thead>
@@ -34,6 +36,7 @@
         {% else %}
             No channels yet
         {% endif %}     
+    </div>
 
 </div>
 {% endblock %}

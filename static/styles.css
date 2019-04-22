@@ -1,4 +1,4 @@
-/* padding is top right bot left */
+/* note to self: padding is top right bot left */
 
 body {
     margin: 0;
@@ -81,7 +81,7 @@ a.nostyle, a.nostyle:link, a.nostyle:visited, a.nostyle:hover, a.nostyle:active 
     margin: 0;
     padding: 0;
     height: calc(100vh - 160px);
-    overflow: scroll;
+    overflow: auto;
     background-color: inherit;
 }
 

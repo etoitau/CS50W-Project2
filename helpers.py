@@ -1,3 +1,7 @@
+# CS0W-Project 2 - Flack
+# By Kyle Chatman
+#
+# define helper functions 
 
 import re
 
@@ -32,14 +36,15 @@ def add_trie(root, word):
     current['end'] = True
     return 0
 
-
-def message(message, title="Attention", code=200):
+# gives user an error page
+def problem(message, title="Attention", code=200):
     """Render message to user."""
-    return render_template("message.html", title=title, message=message, code=code), code
+    session.clear()
+    return render_template("problem.html", title=title, message=message, code=code), code
 
 
 def list_words(text):
-    # returns list of words in string all lowercase
+    # takes block of text and returns list of individual words all lowercase
     words = re.split('\W+', text)
     return [word.lower() for word in words if word]
 
